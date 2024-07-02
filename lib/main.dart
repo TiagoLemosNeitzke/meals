@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals/screens/settings_screen.dart';
+import 'package:meals/screens/tabs_screen.dart';
 import 'package:meals/utils/app_routes.dart';
 import '/screens/categories_screen.dart';
 import 'screens/categories_meals_screen.dart';
@@ -26,9 +28,10 @@ class MyApp extends StatelessWidget {
       // home: CategoriesScreen(), // só utilizar caso eu não tenha rotas nomeadas
       initialRoute: AppRoutes.HOME, // define a rota inicial da aplicação
       routes: {
-        AppRoutes.HOME: (ctx) => const CategoriesScreen(),
+        AppRoutes.HOME: (ctx) => const TabsScreen(),
         AppRoutes.CATEGORIES_MEALS: (ctx) => const CategoriesMealsScreen(),
         AppRoutes.MEAL_DETAIL: (ctx) => const MealDetailScreen(),
+        AppRoutes.SETTINGS: (ctx) => const SettingsScreen(),
       },
       onGenerateRoute: (settings) {
         if (settings.name == '/alguma-coisa') {
