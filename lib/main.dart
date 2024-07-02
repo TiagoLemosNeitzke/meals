@@ -31,6 +31,27 @@ class MyApp extends StatelessWidget {
         AppRoutes.CATEGORIES_MEALS: (ctx) => const CategoriesMealsScreen(),
         AppRoutes.MEAL_DETAIL: (ctx) => const MealDetail(),
       },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/alguma-coisa') {
+          return null;
+        } else if (settings.name == '/outra-coisa') {
+          return null;
+        } else {
+          return MaterialPageRoute(
+            builder: (_) {
+              return const CategoriesScreen();
+            },
+          );
+        }
+      }, // se uma rota não for encontrada, o flutter chama essa função
+      onUnknownRoute: (settings) {
+        //posso usar direto essa função para redirecionar para a tela inicial
+        return MaterialPageRoute(
+          builder: (_) {
+            return const CategoriesScreen();
+          },
+        );
+      }, // se uma rota não for encontrada, o flutter chama essa função
     );
   }
 }
